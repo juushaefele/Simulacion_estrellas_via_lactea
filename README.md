@@ -85,7 +85,8 @@ $$
 
 ---
 
-- Tramo 3:  
+- Tramo 3:
+
 $$15 \le M_{\rm ini} < 17.8$$
 
 $$
@@ -94,7 +95,8 @@ $$
 
 ---
 
-- Tramo 4:  
+- Tramo 4:
+  
 $$17.8 < M_{\rm ini} < 18.5$$
 
 $$
@@ -121,6 +123,7 @@ $$
 - Branch II (colapso total del núcleo de CO):
 
 Para:
+
 $$45 \le M_{\rm ini} \le 120$$
 
 $$M_{\rm BH, core}=5.697+7.8598\times 10^{8}\ M_{\rm ini}^{-4.858}$$
@@ -129,22 +132,12 @@ $$M_{\rm BH, core}=5.697+7.8598\times 10^{8}\ M_{\rm ini}^{-4.858}$$
 
 - Colapso total en fej = 0
 
-$$
-M_{\rm BH,all} =
-15.52
--0.3294\(M_{\rm ini}-25.97)
--0.02121\(M_{\rm ini}-25.97)^2
-+0.003120\(M_{\rm ini}-25.97)^3
-$$
+$$M_{\rm BH,all} =15.52-0.3294\(M_{\rm ini}-25.97)-0.02121\(M_{\rm ini}-25.97)^2+0.003120\(M_{\rm ini}-25.97)^3$$
 
 
 - IFMR para core y núcleo 
-$$
-M_{\rm BH} =
-f_{\rm ej}\ M_{\rm BH core}
-+
-(1-f_{\rm ej})\ M_{\rm BH all}
-$$
+
+$$M_{\rm BH} =f_{\rm ej}\ M_{\rm BH core}+(1-f_{\rm ej})\ M_{\rm BH all}$$
 
 
 Considerando estos ingredientes para el método de montecarlo, el objetivo es estimar la fracción de MS, WD, NS y BH en la simulación, además de la masa y edad del objeto más viejo y más joven en cada categoría.  
