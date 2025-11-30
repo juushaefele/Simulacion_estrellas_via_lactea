@@ -1,4 +1,4 @@
-# Simulacion Montecarlo para las estrellas de la Vía Láctea
+# Simulación Montecarlo para las estrellas de la Vía Láctea
 ### Autoras: **Justine Haefele & Catalina Montecino**  
 
 ---
@@ -23,23 +23,25 @@ El objetivo es estimar:
 
 La simulación considera los siguientes elementos de evolución estelar:
 
-## 1. Initial mass function — Kroupa (2001)
+---
+
+## 1. Initial Mass Function — Kroupa (2001)
 
 La **Initial Mass Function (IMF)** describe la distribución de masas con las que nacen las estrellas:
 
-\[
+$$
 \xi(M) \propto M^{-\alpha}
-\]
+$$
 
 La IMF de Kroupa es una ley de potencias por tramos:
 
-\[
+$$
 \alpha =
 \begin{cases}
 1.3, & 0.08 < M/M_\odot < 0.5 \\
 2.3, & M/M_\odot \ge 0.5
 \end{cases}
-\]
+$$
 
 La mayoría de las estrellas nacen con baja masa, lo que conduce a abundancias elevadas de estrellas en la secuencia principal y enanas blancas, mientras que estrellas de neutrones y agujeros negros se forman en cantidades mucho menores.
 
@@ -49,9 +51,9 @@ La mayoría de las estrellas nacen con baja masa, lo que conduce a abundancias e
 
 La simulación asume una **Star Formation Rate constante** desde 0.01 hasta 10 Gyr:
 
-\[
-t_{\rm birth} \sim U(0, 10\,\mathrm{Gyr})
-\]
+$$
+t_{\rm birth} \sim U(0,\,10\ \mathrm{Gyr})
+$$
 
 Esto significa que todas las estrellas tienen igual probabilidad de formarse en cualquier momento de la historia galáctica.  
 
@@ -59,19 +61,23 @@ Esto significa que todas las estrellas tienen igual probabilidad de formarse en 
 
 ## 3. Tiempo de Vida en Secuencia Principal
 
-Esto permite filtrar a las estrellas en función del tiempo que pasan en la secuencia principal, es decir, fusionando hidrógeno en el núcleo. 
+Esto permite filtrar a las estrellas en función del tiempo que pasan en la secuencia principal (fusionando hidrógeno en el núcleo).
+
 Usamos la aproximación:
 
-\[
+$$
 t_{\rm MS} = t_\odot \left( \frac{M}{M_\odot} \right)^{-2.5}
-\]
+$$
 
-donde  
-- \( t_\odot = 10^{10} \) años es el tiempo de vida del Sol.
+donde:
 
-- Estrellas **masivas** consumen su combustible rápidamente, por lo que tienen vidas cortas.  
-- Estrellas **de baja masa** viven muchos Gyr.  
-- Si \( \text{edad} > t_{\rm MS} \), la estrella se clasifica como **remanente**.
+- $t_\odot = 10^{10}$ años es el tiempo de vida del Sol.
+
+Interpretación física:
+
+- Estrellas **masivas** consumen su combustible rápidamente → vidas cortas  
+- Estrellas **de baja masa** viven muchos Gyr  
+- Si `edad > t_MS` → la estrella se clasifica como **remanente**
 
 ---
 
@@ -81,45 +87,53 @@ El tipo de remanente se determina usando tres relaciones masa inicial–final:
 
 ---
 
-### 🔷 4.1. Enanas Blancas (WD) — Kalirai et al. 2008
+### 4.1. Enanas Blancas (WD) — Kalirai et al. 2008
 
 Relación empírica:
 
-\[
+$$
 M_{\rm WD} = a + b\, M_{\rm ini}
-\]
+$$
 
 Basada en observaciones de cúmulos abiertos.
 
 ---
 
-### 🔷 4.2. Estrellas de Neutrones (NS) — Raithel et al. 2018
+### 4.2. Estrellas de Neutrones (NS) — Raithel et al. 2018
 
-Para estrellas con masas iniciales ~8–30 \(M_\odot\).
+Para estrellas con masas iniciales:
+
+$$
+8\,M_\odot \lesssim M_{\rm ini} \lesssim 30\,M_\odot
+$$
 
 ---
 
-### 🔷 4.3. Agujeros Negros (BH) — Raithel et al. 2018
+### 4.3. Agujeros Negros (BH) — Raithel et al. 2018
 
-Para masas iniciales >30–35 \(M_\odot\).
+Para masas iniciales mayores a:
 
-Ecuaciones (1)–(4), con un parámetro fundamental:
+$$
+M_{\rm ini} \gtrsim 30{-}35\,M_\odot
+$$
+
+Se usa un parámetro clave:
 
 $$
 f_{\rm ej} = 0.9
 $$
 
-representando la fracción del material expulsado en la explosión.
+que representa la fracción de material expulsado en la explosión.
 
 ---
 
 ## 5. Flujo del Algoritmo Monte Carlo
 
-Para un número total de \(N\) estrellas:
+Para un número total de $N$ estrellas:
 
 1. Muestrear masa inicial (IMF de Kroupa)  
 2. Muestrear tiempo de nacimiento (SFR constante)  
-3. Calcular \(t_{\rm MS}\)  
+3. Calcular $t_{\rm MS}$  
 4. Determinar si la estrella sigue en MS o es un remanente  
 5. Aplicar IFMR para WD / NS / BH  
 6. Registrar masas finales, edades y tipos  
@@ -145,21 +159,12 @@ Incluye:
 - Puntos simulados para WD, NS y BH  
 - Comparación directa entre teoría y Monte Carlo
 
+---
 
 # Ejecución del código
 
 ### 1. Clonar el repositorio
+
 ```bash
 git clone https://github.com/tu_usuario/montecarlo_stars.git
 cd montecarlo_stars
-
-Los paquetes necesarios son:
-
-- numpy
-- matplotlib
-- pandas
-- scipy -> stats
-- scipy.interpolate -> interp1d
-- scipy.stats -> binned_statistic
-
-
