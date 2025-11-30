@@ -142,7 +142,7 @@ Esta ecuación se utilizó únicamente para el rango $$15 \le M_{\rm ini} \le 40
 $$M_{\rm BH} =f_{\rm ej}\ M_{\rm BH core}+(1-f_{\rm ej})\ M_{\rm BH all}$$
 
 
-Considerando estos ingredientes para el método de montecarlo, el objetivo es estimar la fracción de MS, WD, NS y BH en la simulación, además de la masa y edad del objeto más viejo y más joven en cada categoría.  
+#### Considerando estos ingredientes para el método de montecarlo, el objetivo es estimar la fracción de MS, WD, NS y BH en la simulación, además de la masa y edad del objeto más viejo y más joven en cada categoría.  
 
 ## Estructura de la simulación
 
