@@ -1,4 +1,4 @@
-# Simulacion Montecarlo para las estrellas de la Vía Láctea
+# Simulación Montecarlo para las estrellas de la Vía Láctea
 ### Por: *Justine Haefele & Catalina Montecino*  
 
 ---
