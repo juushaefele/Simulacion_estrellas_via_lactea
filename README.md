@@ -105,9 +105,9 @@ Para masas iniciales >30–35 \(M_\odot\).
 
 Ecuaciones (1)–(4), con un parámetro fundamental:
 
-\[
+$$
 f_{\rm ej} = 0.9
-\]
+$$
 
 representando la fracción del material expulsado en la explosión.
 
@@ -127,7 +127,7 @@ Para un número total de \(N\) estrellas:
 
 ---
 
-# 📊 Figuras Generadas
+# Figuras Generadas
 
 ### **1. Fracciones y Edades de las Estrellas**  
 
