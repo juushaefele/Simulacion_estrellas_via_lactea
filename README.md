@@ -6,7 +6,9 @@
 Este proyecto utiliza una simulación Monte Carlo para modelar la población estelar de la Vía Láctea.  Dado que la galaxia contiene entre 100 y 400 mil millones de estrellas, es imposible simular cada una con códigos de evolución estelar detallados como MESA o SSE. Por ello, realizamos una población sintética utilizando funciones de evolución estelar de la literatura:
 
 
-### 1. *Initial mass function (IMF) de Kroupa 2001*: esto describe la distribución de masas con las que nacen las estrellas:
+### 1. **Initial mass function (IMF) de Kroupa 2001**: 
+
+Esto describe la distribución de masas con las que nacen las estrellas:
 
 $$\xi(M) \propto M^{-\alpha}$$
 
@@ -24,9 +26,11 @@ $$
 La mayoría de las estrellas nacen con una baja masa, lo que conduce a una gran ccantidad de estrellas en la secuencia principal y enanas blancas, mientras que estrellas de neutrones y agujeros negros se forman en cantidades mucho menores.
 
 
-### 2. *Tasa de Formación Estelar (SFR) constante*: La simulación asume una star formation rate constante desde 0.01 hasta 10 Gyr. Esto significa que todas las estrellas tienen igual probabilidad de formarse en cualquier momento en la historia galáctica.  
+### 2. *Tasa de Formación Estelar (SFR) constante*: 
+La simulación asume una star formation rate constante desde 0.01 hasta 10 Gyr. Esto significa que todas las estrellas tienen igual probabilidad de formarse en cualquier momento en la historia galáctica.  
 
-### 3. *Tiempo de vida en la secuencia principal*: El tiempo que una estrella pasa fusionando hidrógeno en el núcleo permite saber si se encuentra en la secuencia principal. Si la edad de la estrella es mayor a este tiempo, significa que es un remanente estelar. Usamos la aproximación:
+### 3. *Tiempo de vida en la secuencia principal*: 
+El tiempo que una estrella pasa fusionando hidrógeno en el núcleo permite saber si se encuentra en la secuencia principal. Si la edad de la estrella es mayor a este tiempo, significa que es un remanente estelar. Usamos la aproximación:
 
 $$t_{\rm MS} = t_\odot \left( \frac{M}{M_\odot} \right)^{-2.5}$$
 
@@ -163,18 +167,14 @@ Para un número total de N estrellas, pedidas al usuario:
 2. A cada estrella se le asigna tiempo de nacimiento, considerando una SFR constante, entre 0.01 y 10 Gyr.
 3. En función del $$t_{\rm MS}$$ se determina si la estrella sigue en MS o es un remanente.
 4. Los remanentes se clasifican de acuerdo a la masa, y se aplican las IFMR correspondientes para WD, NS y BH.
-5. Se generan las figuras finales, que corresponden a la fracción de estrellas de cada tipo, junto a las estrellas más jóvenes y viejas de la simulación, incluyendo sus edades.
+5. Se generan las figuras finales.
 
-—
+# Figuras Generadas
 
-## Los paquetes necesarios son:
+- Histograma de fracciones: Incluye la fracción de MS, WD, NS y BH, además de la edad de la estrella de secuencia principal más joven y más vieja con sus masas iniciales asociadas.  
+- IFMR para WD, NS y BH: Incluye los puntos simulados estos remanentes, señalando el remanente más joven y viejo de cada tipo.  
+- (Opcional) IFMR para NS y BH: Considera las IFMR, reproduciendo la figura 1 de Raithel+2018, para las curvas teóricas, pero además muestra nuestros datos simulados.
 
-- numpy
-- matplotlib
-- pandas
-- scipy, stats
-- scipy.interpolate, interp1d
-- scipy.stats, binned_statistic
 
 ## Funciones principales
 
@@ -185,15 +185,16 @@ Para un número total de N estrellas, pedidas al usuario:
 - `graficar_fracciones_y_edades()`, `graficar_subplots_inicial_final_color_edad()`, `graficar_ifmr_ns_bh()`: funciones de graficado.  
 - `main()`: corre la simulación y entrega los resultados como 2 figuras, incluyendo una opcional. 
 
+## Paquetes necesarios para ejecutar la simulación
 
-# Figuras Generadas
-
-- Histograma de fracciones: Incluye la fracción de MS, WD, NS y BH, además de la edad de la estrella de secuencia principal más joven y más vieja con sus masas iniciales asociadas.  
-- IFMR para WD, NS y BH: Incluye los puntos simulados estos remanentes, señalando el remanente más joven y viejo de cada tipo.  
-- (Opcional) IFMR para NS y BH: Considera las IFMR, reproduciendo la figura 1 de Raithel+2018, para las curvas teóricas, pero además muestra nuestros datos simulados.
-
-
-# Referencias
+- numpy
+- matplotlib
+- pandas
+- scipy, stats
+- scipy.interpolate, interp1d
+- scipy.stats, binned_statistic
+  
+## Referencias
 - Kroupa (2001), IMF  
 - Kalirai et al. (2008), IFMR WD  
 - Raithel, Özel & Psaltis (2018), Modelos de NS/BH
