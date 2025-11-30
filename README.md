@@ -23,7 +23,7 @@ M^{-1.3}, & 0.08 \le M < 0.5, \\
 \end{cases}
 $$
 
-La mayoría de las estrellas nacen con una baja masa, lo que conduce a una gran ccantidad de estrellas en la secuencia principal y enanas blancas, mientras que estrellas de neutrones y agujeros negros se forman en cantidades mucho menores.
+La mayoría de las estrellas nacen con una baja masa, lo que conduce a una gran cantidad de estrellas en la secuencia principal y enanas blancas, mientras que estrellas de neutrones y agujeros negros se forman en cantidades mucho menores.
 
 ### 2. Tasa de Formación Estelar (SFR) constante: 
 La simulación asume una star formation rate constante desde 0.01 hasta 10 Gyr. Esto significa que todas las estrellas tienen igual probabilidad de formarse en cualquier momento en la historia galáctica.  
@@ -48,7 +48,7 @@ Sabiendo que las estrellas son remanentes, debemos saber a qué tipo corresponde
 - Agujeros Negros (BH):  
   $$M_{\rm ini} > 18.5$$
 
-En los rangos de masa que se sobreponen se utilizó interpolación lineal.
+En los rangos de masa que se sobreponen se asignaron aleatoriamente los tipos, entre los rangos de WD-NS y NS-BH, considerando que se forma una mayor cantidad de estrellas de baja masa, lo que favoreció a las WD y NS en cada tramo respectivo.
 
 ### 5. IFMR para cada tipo de remanente: 
 
@@ -61,9 +61,8 @@ y está basada en observaciones de cúmulos abiertos.
 Para las estrellas de neutrones (NS) se usa Raithel et al. 2018, la cual está definida por tramos:
 
 - Tramo 1:  
-$$
-9 \le M_{\rm ini} \le 13
-$$
+
+$$9 \le M_{\rm ini} \le 13$$
 
 $$
 M_{\rm NS} =
@@ -76,9 +75,9 @@ $$
 ---
 
 - Tramo 2:  
-$$
-13 < M_{\rm ini} < 15
-$$
+
+$$13 \le M_{\rm ini} \le 15$$
+
 
 $$
 M_{\rm NS} = 0.123 + 0.112\ M_{\rm ini}
@@ -87,9 +86,7 @@ $$
 ---
 
 - Tramo 3:  
-$$
-15 \le M_{\rm ini} < 17.8
-$$
+$$15 \le M_{\rm ini} < 17.8$$
 
 $$
 M_{\rm NS} = 0.996 + 0.0384\ M_{\rm ini}
@@ -98,9 +95,7 @@ $$
 ---
 
 - Tramo 4:  
-$$
-17.8 < M_{\rm ini} < 18.5
-$$
+$$17.8 < M_{\rm ini} < 18.5$$
 
 $$
 M_{\rm NS} = -0.020 + 0.10\ M_{\rm ini}
@@ -115,9 +110,7 @@ Para el caso de los agujeros Negros (BH) se utilizan nuevamente las expresiones 
 
 Para:
 
-$$
-15 \le M_{\rm ini} \le 40
-$$
+$$15 \le M_{\rm ini} \le 40$$
 
 $$
 M_{\rm BH, core} = -2.049 + 0.4140\ M_{\rm ini}
@@ -128,7 +121,6 @@ $$
 - Branch II (colapso total del núcleo de CO):
 
 Para:
-
 $$45 \le M_{\rm ini} \le 120$$
 
 $$M_{\rm BH, core}=5.697+7.8598\times 10^{8}\ M_{\rm ini}^{-4.858}$$
