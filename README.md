@@ -134,8 +134,10 @@ $$M_{\rm BH, core}=5.697+7.8598\times 10^{8}\ M_{\rm ini}^{-4.858}$$
 
 $$M_{\rm BH,all} =15.52-0.3294\(M_{\rm ini}-25.97)-0.02121\(M_{\rm ini}-25.97)^2+0.003120\(M_{\rm ini}-25.97)^3$$
 
+Esta ecuación se utilizó únicamente para el rango $$15 \le M_{\rm ini} \le 40$$, considerando la ecuación de masa del core respectiva. Para el rango $$45 \le M_{\rm ini} \le 120$$ se asumió igual a 0.
 
-- IFMR para core y núcleo 
+
+- IFMR para core y núcleo, que permite asignar un valor específico de fej entre 0 y 1. Aquí usamos fej = 0.9.
 
 $$M_{\rm BH} =f_{\rm ej}\ M_{\rm BH core}+(1-f_{\rm ej})\ M_{\rm BH all}$$
 
